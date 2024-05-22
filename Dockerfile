@@ -1,8 +1,9 @@
 FROM node:20
-WORKDIR /app
+WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
 COPY . .
-ENV PORT 8080
-EXPOSE 8080
-CMD [ "npm", "run", "start"]
+ENV MODEL_URL="https://storage.googleapis.com/asclepius/submissions-model/model.json"
+ENV PORT=8000
+EXPOSE 8000
+CMD [ "npm", "run", "start" ]
